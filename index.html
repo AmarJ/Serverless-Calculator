@@ -13,7 +13,7 @@
 <body id="top">
 
 	<!-- Main -->
-	<div id="main">
+	<div id="main" class="main-content">
 		<div class="main-title">
 			<h2>Serverless Cost Calculator</h2>
 		</div>
@@ -71,33 +71,40 @@
 		<input type="radio" name="freetier" value="true" checked style="visibility: collapse;">
 		<input type="radio" name="http" value="false" checked style="visibility: collapse;">
 		<hr />
-		<table>
-			<tr>
-				<th>Vendor</th>
-				<th>Request Cost</th>
-				<th>Compute Cost</th>
-				<th>Total</th>
-			</tr>
-			<tr>
-				<td>AWS Lambda</td>
-				<td>$<span id="lambda-request-cost">-</span></td>
-				<td>$<span id="lambda-execution-cost">-</span></td>
-				<th>$<span id="lambda-total-cost">-</span></td>
-			</tr>
-			<tr>
-				<td>Azure Functions</td>
-				<td>$<span id="azure-request-cost">-</span></td>
-				<td>$<span id="azure-execution-cost">-</span></td>
-				<th>$<span id="azure-total-cost">-</span></td>
-			</tr>
-			<tr>
-				<td>Google Cloud Functions</td>
-				<td>$<span id="google-request-cost">-</span></td>
-				<td>$<span id="google-execution-cost">-</span></td>
-				<th>$<span id="google-total-cost">-</span></td>
-			</tr>
+
+		
+
+
+		<table class="ui celled table">
+			<thead>
+				<tr>
+					<th>Vendor</th>
+					<th>Request Cost</th>
+					<th>Compute Cost</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>AWS Lambda</td>
+					<td>$<span id="lambda-request-cost"></span></td>
+					<td>$<span id="lambda-execution-cost"></span></td>
+					<th>$<span id="lambda-total-cost"></span></td>
+				</tr>
+				<tr>
+					<td>Azure Functions</td>
+					<td>$<span id="azure-request-cost"></span></td>
+					<td>$<span id="azure-execution-cost"></span></td>
+					<th>$<span id="azure-total-cost"></span></td>
+				</tr>
+				<tr>
+					<td>Google Cloud Functions</td>
+					<td>$<span id="google-request-cost"></span></td>
+					<td>$<span id="google-execution-cost"></span></td>
+					<th>$<span id="google-total-cost"></span></td>
+				</tr>
+			</tbody>
 		</table>
-		</section>
 	</div>
 
 	<!-- Scripts -->
@@ -105,7 +112,6 @@
 	<script src="js/jquery/jquery.poptrox.min.js"></script>
 	<script src="js/skel.min.js"></script>
 	<script src="js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="js/main.js"></script>
 
 </body>

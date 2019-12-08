@@ -1,9 +1,15 @@
 .button-long {
-    width: 400px;
+    width: 100%;
     margin-bottom: 20px;
 }
 
 .main-title {
     margin-top: 10px;
     margin-bottom: 50px;
+    text-align: center;
+}
+
+.main-content {
+    margin:0 auto !important;
+    width: 500px;
 }
