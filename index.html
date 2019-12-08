@@ -6,97 +6,108 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" type="text/css" href="css/semantic/semantic.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="css/semantic/semantic.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins:600i&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body id="top">
 
 	<!-- Main -->
-	<div id="main">
+	<div class="ui segment container" id="main">
 		<div class="main-title">
 			<h2>Serverless Cost Calculator</h2>
 		</div>
 
-		<div class="row">
-			<h4>Total number of executions:</h4>
-			<div class="ui input button-long">
 
-				<input type="number" placeholder="Number of exections..." name="number-executions"
-					id="number-executions" data-fillr="bound" autocomplete="off">
-			</div>
-		</div>
+		<div class="ui large form">
+			<div class="three fields">
+				<div class="field">
+					<label>Total Number of Executions</label>
+					<div class="ui input">
+						<input type="number" placeholder="1,000,000" name="number-executions" id="number-executions"
+							data-fillr="bound" autocomplete="off">
 
-		<div class="row">
-			<h4>Estimated execution time:</h4>
-			<div class="ui right labeled input button-long">
-				<input type="number" placeholder="Estimated execution time..." name="executed-estimation-time"
-					id="executed-estimation-time" data-fillr="bound" autocomplete="off">
-				<div class="ui basic label">
-					ms
+					</div>
 				</div>
+				<div class="field">
+					<label>Estimated Execution Time:</label>
+					<div class="ui right labeled input">
+						<input type="number" placeholder="Estimated execution time..." name="executed-estimation-time"
+							id="executed-estimation-time" data-fillr="bound" autocomplete="off">
+						<div class="ui basic label">
+							ms
+						</div>
+					</div>
+				</div>
+				<div class="field">
+					<label>Function Memory</label>
+					<select name="memory" id="memory" class="ui search selection dropdown">
+						<option value="128">128MB</option>
+						<option value="192">192MB</option>
+						<option value="256">256MB</option>
+						<option value="320">320MB</option>
+						<option value="384">384MB</option>
+						<option value="448">448MB</option>
+						<option value="512">512MB</option>
+						<option value="576">576MB</option>
+						<option value="640">640MB</option>
+						<option value="704">704MB</option>
+						<option value="768">768MB</option>
+						<option value="832">832MB</option>
+						<option value="896">896MB</option>
+						<option value="960">960MB</option>
+						<option value="1024">1024MB</option>
+						<option value="1088">1088MB</option>
+						<option value="1152">1152MB</option>
+						<option value="1216">1216MB</option>
+						<option value="1280">1280MB</option>
+						<option value="1344">1344MB</option>
+						<option value="1408">1408MB</option>
+						<option value="1472">1472MB</option>
+						<option value="1536">1536MB</option>
+					</select>
+				</div>
+
 			</div>
-		</div>
-
-		<div class="row">
-			<h4>Select function memory:</h4>
-
-			<select name="memory" id="memory" class="ui search dropdown">
-				<option value="128">128MB</option>
-				<option value="192">192MB</option>
-				<option value="256">256MB</option>
-				<option value="320">320MB</option>
-				<option value="384">384MB</option>
-				<option value="448">448MB</option>
-				<option value="512">512MB</option>
-				<option value="576">576MB</option>
-				<option value="640">640MB</option>
-				<option value="704">704MB</option>
-				<option value="768">768MB</option>
-				<option value="832">832MB</option>
-				<option value="896">896MB</option>
-				<option value="960">960MB</option>
-				<option value="1024">1024MB</option>
-				<option value="1088">1088MB</option>
-				<option value="1152">1152MB</option>
-				<option value="1216">1216MB</option>
-				<option value="1280">1280MB</option>
-				<option value="1344">1344MB</option>
-				<option value="1408">1408MB</option>
-				<option value="1472">1472MB</option>
-				<option value="1536">1536MB</option>
-			</select>
 		</div>
 
 		<input type="radio" name="freetier" value="true" checked style="visibility: collapse;">
 		<input type="radio" name="http" value="false" checked style="visibility: collapse;">
 		<hr />
-		<table>
-			<tr>
-				<th>Vendor</th>
-				<th>Request Cost</th>
-				<th>Compute Cost</th>
-				<th>Total</th>
-			</tr>
-			<tr>
-				<td>AWS Lambda</td>
-				<td>$<span id="lambda-request-cost">-</span></td>
-				<td>$<span id="lambda-execution-cost">-</span></td>
-				<th>$<span id="lambda-total-cost">-</span></td>
-			</tr>
-			<tr>
-				<td>Azure Functions</td>
-				<td>$<span id="azure-request-cost">-</span></td>
-				<td>$<span id="azure-execution-cost">-</span></td>
-				<th>$<span id="azure-total-cost">-</span></td>
-			</tr>
-			<tr>
-				<td>Google Cloud Functions</td>
-				<td>$<span id="google-request-cost">-</span></td>
-				<td>$<span id="google-execution-cost">-</span></td>
-				<th>$<span id="google-total-cost">-</span></td>
-			</tr>
+		<table class="ui celled table">
+			<thead>
+				<tr>
+					<th>Vendor</th>
+					<th>Request Cost</th>
+					<th>Compute Cost</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>AWS Lambda</td>
+					<td>$<span id="lambda-request-cost">-</span></td>
+					<td>$<span id="lambda-execution-cost">-</span></td>
+					<td>$<span id="lambda-total-cost">-</span></td>
+				</tr>
+				<tr>
+					<td>Azure Functions</td>
+					<td>$<span id="azure-request-cost">-</span></td>
+					<td>$<span id="azure-execution-cost">-</span></td>
+					<td>$<span id="azure-total-cost">-</span></td>
+				</tr>
+				<tr>
+					<td>Google Cloud Functions</td>
+					<td>$<span id="google-request-cost">-</span></td>
+					<td>$<span id="google-execution-cost">-</span></td>
+					<td>$<span id="google-total-cost">-</span></td>
+				</tr>
+			</tbody>
 		</table>
+		<div>
+			<button id="clear" class="ui button right floated red">Clear</button>
+		</div>
 		</section>
 	</div>
 
