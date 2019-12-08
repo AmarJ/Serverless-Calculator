@@ -92,7 +92,6 @@
 
 				}
 				$window.on('load', function() {
-
 					$('#two').poptrox({
 						caption: function($a) { return $a.next('h3').text(); },
 						overlayColor: '#2c2c2c',
@@ -121,6 +120,12 @@
 					}
 					return cpu;
 				}
+
+				$("#clear").click(function() {
+					$('#number-executions').val(''); 
+					$('#executed-estimation-time').val('');
+					$('#memory').val('128');
+				});
 
 				function calculateCost(chargeGBSecond, requestCharge, freeTierLength, freeRequests, httpCharge, cpu = 0, chargeGHzSecond = 0, freeTierLengthCPU = 0) {
 					var result = {};
